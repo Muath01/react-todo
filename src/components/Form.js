@@ -25,10 +25,7 @@ const Form = ({setInputText,inputText, todos, setTodos, setStatus}) =>{
         
     }
     const statusHandler = (e) =>{
-        if(e.target.value == "completed"){
-            console.log("hello")
-             setTodos(todos.filter(item => item.completed))
-        }
+        setStatus(e.target.value)
     }
     
     return(
