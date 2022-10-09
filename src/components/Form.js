@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-const Form = ({setInputText,inputText, todos, setTodos}) =>{
+const Form = ({setInputText,inputText, todos, setTodos, setStatus}) =>{
 
     const inputTextHandler = (e) =>{
         setInputText(e.target.value);
@@ -24,6 +24,13 @@ const Form = ({setInputText,inputText, todos, setTodos}) =>{
         e.target.value = "";
         
     }
+    const statusHandler = (e) =>{
+        if(e.target.value == "completed"){
+            console.log("hello")
+             setTodos(todos.filter(item => item.completed))
+        }
+    }
+    
     return(
     <form>
         <input value={inputText} onChange={inputTextHandler} type="text" className="todo-input" />
@@ -31,7 +38,7 @@ const Form = ({setInputText,inputText, todos, setTodos}) =>{
             <i className="fas fa-plus-square"></i>
         </button>
         <div className="select">
-            <select name="todos" className="filter-todo">
+            <select onChange={(statusHandler)} name="todos" className="filter-todo">
                 <option value="all">All</option>
                 <option value="completed">Completed</option>
                 <option value="todo">ToDo</option>

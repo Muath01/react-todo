@@ -1,7 +1,7 @@
 import React from "react";
 
 const Todo = ({todo, todos, setTodos}) =>{
-    console.log(todo.text)
+    
 
     function completedHandler(e){
         setTodos(todos.map(item => {
@@ -10,8 +10,8 @@ const Todo = ({todo, todos, setTodos}) =>{
                     ...item,
                     completed: !item.completed
                 }
-                return item;
             }
+            return item;
         }))
     }
 
@@ -20,11 +20,14 @@ const Todo = ({todo, todos, setTodos}) =>{
     }
     return(
         <div className="todo">
-            <li className={`todo-item ${todo.completed ? "completed" : ""}`}>
-                {todo.text}
-            </li>
-            <button onClick={completedHandler} className="complete-btn" ><i className="fas fa-check"></i></button>
-            <button onClick={deleteHandler} className="trash-btn"><i className="fas fa-trash"></i></button>
+            <li className={`todo-item ${todo.completed ? "completed" : ""}`}>{todo.text}</li>
+         
+            <button onClick={completedHandler} className="complete-btn" >
+                <i className="fas fa-check"></i>
+            </button>
+            <button onClick={deleteHandler} className="trash-btn">
+                <i className="fas fa-trash"></i>
+            </button>
         </div>
     )
 }
