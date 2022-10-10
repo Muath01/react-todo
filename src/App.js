@@ -40,12 +40,7 @@ function App() {
   }
 
   const saveLocalTodos = () => {
-    
-    if(todos.length > 0){
       localStorage.setItem("todos", JSON.stringify(todos))
-
-    }
-
   }
 
   const getLocalTodos = () =>{
